@@ -1,9 +1,7 @@
-const Query = {
-  dogs(parent, args, ctx, info) {
-    global.dogs = global.dogs || [];
-    return global.dogs;
-  },
+const { forwardTo } = require('prisma-binding');
 
+const Query = {
+  items: forwardTo('db'),
 };
 
 module.exports = Query;
